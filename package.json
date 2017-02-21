@@ -1,0 +1,25 @@
+{
+  "name": "siguniang",
+  "version": "1.0.0",
+  "description": "四姑娘的个人拾光",
+  "main": "app.js",
+  "dependencies": {
+    "express": "latest",
+    "jade": "latest",
+    "mongoose": "^4.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckyYao/SiGuNiang.git"
+  },
+  "author": "Christina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luckyYao/SiGuNiang/issues"
+  },
+  "homepage": "https://github.com/luckyYao/SiGuNiang#readme"
+}

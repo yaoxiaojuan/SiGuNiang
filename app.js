@@ -1,32 +1,25 @@
-var express = require('express')
-var port = process.env.PORT || 3000
-var app = express()
+var express = require('express');
+var path = require('path');
+var mongoose = require('mongoose');
+var Index = require('./models/index');
+var _ = require('underscore');
+var port = process.env.PORT || 3000;
+var app = express();
 
-app.set('views', './views')
-app.set('view engine', 'jade')
-app.listen(port)
-
-console.log('四姑娘的拾光开始')
+mongoose.connect('mongodb://localhost/demo');
+app.set('views', './views/pages');
+app.set('view engine', 'jade');
+app.listen(port);
+app.use(express.static(path.join(__dirname, 'bower_components')));
 
 // index page
 app.get('/', function(req, res) {
-  res.render('index',{
-    title: '四姑娘的拾光'
-  })
-})
-// index page
-app.get('/', function(req, res) {
-  res.render('detail',{
-    title: '四姑娘的拾光detail'
-  })
-})// index page
-app.get('/', function(req, res) {
-  res.render('admin',{
-    title: '四姑娘的拾光admin'
-  })
-})// index page
-app.get('/', function(req, res) {
-  res.render('list',{
-    title: '四姑娘的拾光list'
+  console.log("changes");
+  Index.fetch('lucky', function(err, list) {
+    if (err) return console.error(err);
+    res.render('index', {
+      title: 'Demo',
+      list: list
+    })
   })
 })
