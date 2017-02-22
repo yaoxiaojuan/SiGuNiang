@@ -1,0 +1,15 @@
+extends ../layout
+block content
+  .container
+    .row
+      table.table.table-hover.table-bordered
+        thead
+          tr
+            th name
+            th content
+            th meta
+        tbody
+          each item in list
+            tr
+              td #{item.name}
+              td #{item.content}
